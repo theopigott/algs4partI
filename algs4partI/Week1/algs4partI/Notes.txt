@@ -1,0 +1,19 @@
+Union-Find (UF)
+Set of N points, with links between them. Can join two points (union) or check if there is a path joining two points (conncted).
+
+Quick-Find
+Store IDs in an array id[N]. Points conncted if they have the same id.
+
+Quick-Union
+Store IDs in an array. id[i] = j means that parent of i is j. If id[i] = i then i is a root. i and j are connected if they have the same root.
+
+Weighted
+Store size (number of nodes or height of tree) of each root's tree in separate array. When joining two nodes, make the larger one the parent. This reduces the tree heights, increasing efficiency. Maximum tree height is log_2(N).
+
+Path compression
+When finding root, update all nodes passed through to point to the root, flattening out tree.
+Or, more simply, update every other node to point to its grandparent, havling tree size.
+
+Applications
+Percolation
+Dynamic connectivity

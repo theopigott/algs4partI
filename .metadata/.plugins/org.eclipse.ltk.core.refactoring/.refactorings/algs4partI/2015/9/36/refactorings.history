@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;algs4partI.UFQuickUnionWeights&apos; to &apos;UFQuickUnionWeighted&apos;&#x0D;&#x0A;- Original project: &apos;algs4partI&apos;&#x0D;&#x0A;- Original element: &apos;algs4partI.UFQuickUnionWeights&apos;&#x0D;&#x0A;- Renamed element: &apos;algs4partI.UFQuickUnionWeighted&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Rename similarly named elements&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;UFQuickUnionWeights&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/Week1&lt;algs4partI{UFQuickUnionWeights.java[UFQuickUnionWeights" matchStrategy="1" name="UFQuickUnionWeighted" qualified="false" references="true" similarDeclarations="true" stamp="1441554702962" textual="false" version="1.0"/>
+</session>
