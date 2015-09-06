@@ -12,3 +12,9 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 4 2015-09-06 19:28:48.108
+!MESSAGE Conflicting handlers for org.eclipse.ui.file.print: {ActionHandler(org.eclipse.ui.texteditor.AbstractDecoratedTextEditor$12@46aec534)} vs {ActionHandler(org.eclipse.ui.texteditor.TextOperationAction@6046e851)}
+
+!ENTRY org.eclipse.ui 4 4 2015-09-06 19:29:06.803
+!MESSAGE Conflicting handlers for org.eclipse.ui.file.print: {ActionHandler(org.eclipse.ui.texteditor.AbstractDecoratedTextEditor$12@46aec534)} vs {ActionHandler(org.eclipse.ui.texteditor.TextOperationAction@6046e851)}
