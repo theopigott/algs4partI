@@ -1,0 +1,15 @@
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
+
+public class Percolation {
+	WeightedQuickUnionUF UF;
+	
+	public Percolation(int N) {
+		UF = new WeightedQuickUnion(N^2);
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}
