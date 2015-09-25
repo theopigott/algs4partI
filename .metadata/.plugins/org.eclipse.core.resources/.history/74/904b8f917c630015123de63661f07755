@@ -1,0 +1,10 @@
+
+
+public class StackArray<Item> {
+	private Item[] a;
+	
+	@SuppressWarnings("unchecked")
+	public StackArray<Item>() {
+		a = (Item[]) new Object[1];
+	}
+}

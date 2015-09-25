@@ -1,0 +1,12 @@
+# Overview
+* Collection of objects
+* Operations: insert, remove, iterate, test if empty
+
+## Encapsulation
+Separate interface and implementation
+
+* Design: modular, reusable libraries
+* Performance: optimized implementation
+
+# Stack
+LIFO = "last in first out"

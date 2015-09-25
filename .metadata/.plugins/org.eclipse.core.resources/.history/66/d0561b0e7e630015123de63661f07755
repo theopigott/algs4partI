@@ -1,0 +1,30 @@
+import StackLinked.Node;
+
+
+public class QueueLinked<Item> {
+	Node first = null;
+	Node last = null;
+	
+	private class Node {
+		Item item;
+		Node next;
+	}
+	
+	public boolean isEmpty() { return first == null; }
+	
+	public void enqueue(Item item) {
+		Node oldlast = last;
+		Node last = new Node();
+		last.item = item;
+		if (isEmpty()) first = last;
+		else oldlast.next = last;
+	}
+	
+	public Item dequeue() {
+		Item item = first.item;
+		first = first.next;
+		return item;
+	}
+	
+	public boolean hasNext() { return first != null; }
+}

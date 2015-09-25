@@ -1,0 +1,38 @@
+@SuppressWarnings("unchecked")
+public class QueueArray<Item> {
+	private Item[] a;
+	int N = 0;
+	int head = 0;
+	int tail = 1;
+	
+	public QueueArray() {
+		a = (Item[]) new Object[1];
+	}
+	
+	public boolean isEmpty() { return N == 0; }
+	
+	public void enqueue(Item item) {
+		if (N == a.length) resize(a.length * 2);
+		a[tail] = item;
+		tail = (tail + 1) % a.length;
+		N++;
+	}
+	
+	public Item dequeue() {
+		Item item = a[head];
+		head = (head + 1) % a.length;
+		N--;
+		a[N] = null; // Avoid loitering
+		if (N > 0 && N == a.length/4) resize(a.length/2);
+		return item;
+	}
+	
+	private void resize(int M) {
+		Item[] copy = (Item[]) new Object[M];
+		for (int i = 0; i < N; i++) {
+			copy[(head + i) % a.length] = a[i];
+		}
+		a = copy;
+	}
+	
+}

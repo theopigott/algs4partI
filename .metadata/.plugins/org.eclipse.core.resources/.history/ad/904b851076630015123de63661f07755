@@ -1,0 +1,10 @@
+# Overview
+* Collection of objects
+* Operations
+  * Insert
+  * Remove
+  * Iterate
+  * Test if empty
+
+# Stack
+LIFO = "last in first out"

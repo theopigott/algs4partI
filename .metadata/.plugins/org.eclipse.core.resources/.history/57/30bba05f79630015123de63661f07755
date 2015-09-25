@@ -1,0 +1,9 @@
+
+public class LinkedStack<Item> {
+	Node first = null;
+	
+	private class Node {
+		Item item;
+		Node next;
+	}
+}

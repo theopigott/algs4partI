@@ -1,0 +1,6 @@
+# Overview
+* Collection of objects
+* Operations: insert, remove, iterate, test if empty
+
+# Stack
+LIFO = "last in first out"
