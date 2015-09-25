@@ -1,0 +1,19 @@
+# Overview
+* Want to sort *any* type of data.
+
+## Comparable
+* Callback = reference to executable code.
+* `sort()` function *calls back* an object's `compareTo()` method.
+* `Comparable` interface implements `compareTo()` method.
+
+### `compareTo()`
+Returns
+
+* negative integer if v < w
+* zero if v = w
+* positive integer if v > w
+Total ordering: relation v ~ w = `v.compareTo(w)` satisfies
+
+* Antisymmetry: if v <= w and w <= v then v = w.
+* Transitivity: if v <= w and w <= x then v <= x.
+* Totality: either v <= w or w <= v or both.
