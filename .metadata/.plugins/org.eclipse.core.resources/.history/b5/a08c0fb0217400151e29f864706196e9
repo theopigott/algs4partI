@@ -1,0 +1,30 @@
+# Overview
+* Shuffle array (for performance 'guarantee').
+* Partition array (get `a[j]` in place with entries to the left of j &le; `a[j]` and entries to the right of j &ge; `a[j]`.
+* Sort each part recursively.
+
+# Performance
+Best case ~ N lg(N) compares.
+
+Worst case ~ 1/2 N^2 compares.
+
+Uses at most N lg(N) compares and 6 N lg(N) array accesses.
+
+Recurrence relations for compares C(N) and array accesses A(N) are
+
+C(N) &le; C(&lceil;N/2&rceil;) + C(&lfloor;N/2&rfloor;) + N
+
+A(N) &le; A(&lceil;N/2&rceil;) + A(&lfloor;N/2&rfloor;) + 6N
+
+for N > 1, with C(1) = A(1) = 0.
+
+# Memory
+Uses extra space proportional to N, as `aux[]` must be of size N for the last merge.
+
+## In-place
+A sortion algorithm is **in-place** if it uses &le; log(N) extra memory, e.g. insertion sort, selection sort, shellsort. Possible to implement in-place merge (Kronrod, 1969).
+
+# Improvements
+* Use insertion sort for small subarrays (mergesort has too much overhead for small arrays), e.g. cutoff to insertion sort for &asymp; 7 items.
+* No need to merge if already sorted: if biggest item in 1st half &le; smallest item in second half.
+* Eliminate copy to auxiliary array by switching input and auxiliary array in each recursive call.

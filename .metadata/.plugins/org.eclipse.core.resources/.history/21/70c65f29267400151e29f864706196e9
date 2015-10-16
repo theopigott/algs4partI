@@ -1,0 +1,50 @@
+@SuppressWarnings("rawtypes")
+public class Quick {
+	
+	private static int partition(Comparable[] a, int lo, int hi) {
+		int i = lo;
+		int j = hi + 1;
+		
+		while (true) {
+			// Find first entry not less than a[lo] without falling off end of array
+			while (less(a[++i], a[lo])) if (i == hi) break;
+			// Find last entry not greater than a[lo] without falling off start of array
+			while (less(a[lo], a[--j])) if (j == lo) break;
+			// Stop when i and j cross
+			if (i >= j) break;
+			// Swap a[i] and a[j] to maintain invariance
+			exch(a, i, j);
+		}
+		// Put a[lo] at the correct place between partitions
+		exch(a, lo, j);
+		// Return index of entry now in place
+		return j;
+	}
+	
+	public static void sort(Comparable[] a) {
+		
+	}
+	
+	public static void sort(Comparable[] a, int lo, int hi) {
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	private static boolean less(Comparable v, Comparable w) { 
+		return v.compareTo(w) < 0; 
+	}
+	
+	private static void exch(Comparable[] a, int i, int j) {
+		Comparable swap = a[i];
+		a[i] = a[j];
+		a[j] = swap;
+	}
+	
+	private static boolean isSorted(Comparable[] a, int lo, int hi) {
+		for (int k = lo; k < hi-1; k++) {
+			if (less(a[k+1], a[k])) return false;
+		}
+		return true;
+	}
+	
+}

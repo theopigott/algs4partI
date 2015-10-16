@@ -1,0 +1,22 @@
+
+public class Quick {
+
+	@SuppressWarnings("unchecked")
+	private static boolean less(Comparable v, Comparable w) { 
+		return v.compareTo(w) < 0; 
+	}
+	
+	private static void exch(Comparable[] a, int i, int j) {
+		Comparable swap = a[i];
+		a[i] = a[j];
+		a[j] = swap;
+	}
+	
+	private static boolean isSorted(Comparable[] a, int lo, int hi) {
+		for (int k = lo; k < hi-1; k++) {
+			if (less(a[k+1], a[k])) return false;
+		}
+		return true;
+	}
+	
+}

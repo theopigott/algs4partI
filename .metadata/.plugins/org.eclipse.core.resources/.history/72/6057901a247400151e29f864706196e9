@@ -1,0 +1,52 @@
+# Overview
+* Shuffle array (for performance 'guarantee').
+* Partition array (get `a[j]` in place with entries to the left of j &le; `a[j]` and entries to the right of j &ge; `a[j]`.
+* Sort each part recursively.
+
+# Performance
+Faster than mergesort since less data movement (not transferring between arrays).
+
+Best case ~ N lg(N) compares.
+
+Worst case ~ 1/2 N^2 compares (if array sorted). Shuffle makes this worst case *very* unlikely.
+
+Average number of compares C(N) is ~ 2N ln(N)
+
+Recurrence relation for compares C(N) is
+
+C(0) = C(1) = 0 and for N &ge; 2
+
+C(N) = (N+1) + (C(0) + C(N-1))/N + ... + (C(N-1) + C(0))/N
+
+which gives
+
+N C(N) = N(N+1) + 2(C(0) + C(1) + ... + C(N-1))
+
+then subtracting this from the same equation for N-1 gives
+
+N C(N) - (N-1) C(N-1) = 2N + 2 C(N-1)
+
+which can be rearranged to
+
+C(N)/(N+1) = C(N-1)/N + 2/(N+1).
+
+Recursively applying this gives
+
+C(N)/(N+1) = 2(1/3 + 1/4 + ... + 1/(N+1))
+
+and approximating by an integral
+
+C(N) = 2(N+1)(1/3 + .. + 1/(N+1)) 
+
+&asymp; 2(N+1) &int;<sub>3</sub><sup>N+1</sup> 1/x dx 
+
+= 2(N+1) ln(N)
+
+# Characteristics
+Quicksort is an *in-place* sorting algorithm (partitioning requires constant extra space, recursion requires logarithmic extra space [with high probability]).
+
+Quicksort is *not stable*.
+
+# Improvements
+* Use insertion sort for small subarrays (mergesort has too much overhead for small arrays), e.g. cutoff to insertion sort for &asymp; 10 items.
+* Best choice of pivot item is median - can estimate true median by taking median of sample (of 3 random items for example).

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 @SuppressWarnings("rawtypes")
 public class Selection {
 	public static void sort(Comparable[] a) {
@@ -11,6 +13,12 @@ public class Selection {
 			}
 			exch(a, i, min);
 		}
+	}
+	
+	public static void main(String[] args) {
+		Integer[] a = {3, 7, 2, 6, 1, 5, 4};
+		sort(a);
+		System.out.println(Arrays.toString(a));
 	}
 	
 	@SuppressWarnings("unchecked")

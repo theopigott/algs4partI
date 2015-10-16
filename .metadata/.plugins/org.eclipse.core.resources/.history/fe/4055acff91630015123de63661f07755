@@ -1,6 +1,0 @@
-# Overview
-* Want to sort *any* type of data.
-
-## Callback
-* Reference to executable code.
-* `sort()` function *calls back* an object's `compareTo()` method.
