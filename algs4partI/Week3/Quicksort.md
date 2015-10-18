@@ -81,74 +81,68 @@ Suppose `v` is the partitioning element, then scanning `i` from left to right
 Quicksort with 3-way partitioning is *entropy-optimal* (proportional to lower bound).
 
 # Summary
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg .tg-baqh{text-align:center;vertical-align:top}
-</style>
-<table class="tg">
+<table>
   <tr>
-    <th class="tg-baqh"></th>
-    <th class="tg-baqh">inplace?</th>
-    <th class="tg-baqh">stable?</th>
-    <th class="tg-baqh">worst</th>
-    <th class="tg-baqh">average</th>
-    <th class="tg-baqh">best</th>
-    <th class="tg-baqh">remarks</th>
+    <th></th>
+    <th>inplace?</th>
+    <th>stable?</th>
+    <th>worst</th>
+    <th>average</th>
+    <th>best</th>
+    <th>remarks</th>
   </tr>
   <tr>
-    <td class="tg-baqh">selection</td>
-    <td class="tg-baqh">&#10004;</td>
-    <td class="tg-baqh"></td>
-    <td class="tg-baqh">N^2 / 2</td>
-    <td class="tg-baqh">N^2 / 2</td>
-    <td class="tg-baqh">N^2 / 2</td>
-    <td class="tg-baqh">N exchanges</td>
+    <td>selection</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>N^2 / 2</td>
+    <td>N^2 / 2</td>
+    <td>N^2 / 2</td>
+    <td>N exchanges</td>
   </tr>
   <tr>
-    <td class="tg-baqh">insertion</td>
-    <td class="tg-baqh">&#10004;</td>
-    <td class="tg-baqh">&#10004;</td>
-    <td class="tg-baqh">N^2 / 2</td>
-    <td class="tg-baqh">N^2 / 4</td>
-    <td class="tg-baqh">N</td>
-    <td class="tg-baqh">use for small N or partially ordered</td>
+    <td>insertion</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>N^2 / 2</td>
+    <td>N^2 / 4</td>
+    <td>N</td>
+    <td>use for small N or partially ordered</td>
   </tr>
   <tr>
-    <td class="tg-baqh">shell</td>
-    <td class="tg-baqh">&#10004;</td>
-    <td class="tg-baqh"></td>
-    <td class="tg-baqh">?</td>
-    <td class="tg-baqh">?</td>
-    <td class="tg-baqh">N</td>
-    <td class="tg-baqh">tight code, subquadratic</td>
+    <td>shell</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>?</td>
+    <td>?</td>
+    <td>N</td>
+    <td>tight code, subquadratic</td>
   </tr>
   <tr>
-    <td class="tg-baqh">merge</td>
-    <td class="tg-baqh"></td>
-    <td class="tg-baqh">&#10004;</td>
-    <td class="tg-baqh">N lg N</td>
-    <td class="tg-baqh">N lg N</td>
-    <td class="tg-baqh">N lg N</td>
-    <td class="tg-baqh">N log N guarantee, stable</td>
+    <td>merge</td>
+    <td></td>
+    <td>&#10004;</td>
+    <td>N lg N</td>
+    <td>N lg N</td>
+    <td>N lg N</td>
+    <td>N log N guarantee, stable</td>
   </tr>
   <tr>
-    <td class="tg-baqh">quick</td>
-    <td class="tg-baqh">&#10004;</td>
-    <td class="tg-baqh"></td>
-    <td class="tg-baqh">N^2 / 2</td>
-    <td class="tg-baqh">2 N ln N</td>
-    <td class="tg-baqh">N lg N</td>
-    <td class="tg-baqh">N log N probabilistic guarantee, fastest in practice</td>
+    <td>quick</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>N^2 / 2</td>
+    <td>2 N ln N</td>
+    <td>N lg N</td>
+    <td>N log N probabilistic guarantee, fastest in practice</td>
   </tr>
   <tr>
-    <td class="tg-baqh">3-way quick</td>
-    <td class="tg-baqh">&#10004;</td>
-    <td class="tg-baqh"></td>
-    <td class="tg-baqh">N^2 / 2</td>
-    <td class="tg-baqh">2 N ln N</td>
-    <td class="tg-baqh">N</td>
-    <td class="tg-baqh">improves quicksort in presence of duplicate keys</td>
+    <td>3-way quick</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>N^2 / 2</td>
+    <td>2 N ln N</td>
+    <td>N</td>
+    <td>improves quicksort in presence of duplicate keys</td>
   </tr>
 </table>
