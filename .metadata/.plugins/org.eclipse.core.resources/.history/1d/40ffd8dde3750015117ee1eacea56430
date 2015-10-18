@@ -1,0 +1,71 @@
+# Overview
+* Shuffle array (for performance 'guarantee').
+* Partition array (get `a[j]` in place with entries to the left of j &le; `a[j]` and entries to the right of j &ge; `a[j]`.
+* Sort each part recursively.
+
+Invariance: all entries to left of i are not greater than `a[j]` and all entries to the right of j are not less than `a[j]`.
+
+# Performance
+Faster than mergesort since less data movement (not transferring between arrays).
+
+Best case ~ N lg(N) compares.
+
+Worst case ~ 1/2 N^2 compares (if array sorted). Shuffle makes this worst case *very* unlikely.
+
+Average number of compares C<sub>N</sub> is ~ 2N ln(N)
+
+Recurrence relation for compares C<sub>N</sub> is
+
+C<sub>0</sub> = C<sub>1</sub> = 0 and for N &ge; 2
+
+C<sub>N</sub> = (N+1) + (C<sub>0</sub> + C<sub>N-1</sub>)/N + ... + (C<sub>N-1</sub> + C<sub>0</sub>)/N
+
+which gives
+
+N C<sub>N</sub> = N(N+1) + 2(C<sub>0</sub> + C<sub>1</sub> + ... + C<sub>N-1</sub>)
+
+then subtracting this from the same equation for N-1 gives
+
+N C<sub>N</sub> - (N-1) C<sub>N-1</sub> = 2N + 2 C<sub>N-1</sub>
+
+which can be rearranged to
+
+C<sub>N</sub>/(N+1) = C<sub>N-1</sub>/N + 2/(N+1).
+
+Recursively applying this gives
+
+C<sub>N</sub>/(N+1) = 2(1/3 + 1/4 + ... + 1/(N+1))
+
+and approximating by an integral
+
+C<sub>N</sub> = 2(N+1)(1/3 + .. + 1/(N+1)) 
+
+&asymp; 2(N+1) &int;<sub>3</sub><sup>N+1</sup> 1/x dx 
+
+= 2(N+1) ln(N)
+
+&asymp; 1.39 N lg(N)
+
+# Characteristics
+Quicksort is an *in-place* sorting algorithm (partitioning requires constant extra space, recursion requires logarithmic extra space [with high probability]).
+
+Quicksort is *not stable*.
+
+# Improvements
+* Use insertion sort for small subarrays (mergesort has too much overhead for small arrays), e.g. cutoff to insertion sort for &asymp; 10 items.
+* Best choice of pivot item is median - can estimate true median by taking median of sample (of 3 random items for example).
+
+# Quick-select
+Algorithm for selecting the kth smallest item (e.g. min / max / median) based on ideas of quicksort.
+
+* Partition array so that `a[j]` is in place, with elements to the left smaller and elements to the right larger.
+* Repeat only on relevant subarray (i.e. the one containing k) until `a[k]` is in place.
+
+Takes linear time on average. Intuition: each partition splits array roughly in half so have N + N/2 + N/4 + ... = 2N compares.
+
+Worst case is ~N^2/2 compares, but random shuffle gives probabilistic guarantee.
+
+There exists a known selection algorithm with worst case linear running time, but constants are too high for practical use.
+
+# Duplicate keys
+Quicksort goes quadratic unless partitioning stops on equal keys.

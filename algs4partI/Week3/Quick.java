@@ -55,6 +55,47 @@ public class Quick {
 		sort(a, j+1, hi);
 	}
 	
+	// Pick out kth smallest element
+	public static Comparable select(Comparable[] a, int k) {
+		shuffle(a);
+		int lo = 0;
+		int hi = a.length - 1;
+		// Recursively partition the sections containing a[k]
+		while (lo < hi) {
+			int j = partition(a, lo, hi);
+			if (j < k) lo = j + 1;
+			else if (k < j) hi = j - 1;
+			else return a[k];
+		}
+		return a[k];
+	}
+	
+	public static void sortDuplicates(Comparable[] a) {
+		sortDuplicates(a, 0, a.length - 1);
+	}
+	
+	// Dijkstra 3-way partitioning algorithm
+	// Code maintains invariants: 
+	// - Entries between lt and gt and equal to partitioning element
+	// - Entries below lt and smaller
+	// - Entries above gt are larger
+	public static void sortDuplicates(Comparable[] a, int lo, int hi) {
+		if (hi <= lo) return;
+		int lt = lo;
+		int gt = hi;
+		Comparable v = a[lo];
+		int i = lo;
+		while (i <= gt) {
+			@SuppressWarnings("unchecked")
+			int cmp = v.compareTo(a[i]);
+			if (cmp > 0) exch(a, i++, lt++);
+			else if (cmp < 0) exch(a, i, gt--);
+			else i++;
+		}
+		sortDuplicates(a, lo, lt-1);
+		sortDuplicates(a, gt+1, hi);
+	}
+	
 	// Knuth shuffle
 	public static void shuffle(Comparable[] a) {
 		Random rng = new Random();
